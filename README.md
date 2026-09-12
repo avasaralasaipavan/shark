@@ -8,16 +8,25 @@ Shark runs in your terminal, understands your codebase, and helps you write, rev
 
 ```bash
 # macOS / Linux
-curl -fsSL https://raw.githubusercontent.com/avasaralasaipavan/shark/dev/script/distro/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/avasaralasaipavan/shark/shark-branding/script/distro/install.sh | bash
 
 # Windows (PowerShell)
-iwr https://raw.githubusercontent.com/avasaralasaipavan/shark/dev/script/distro/install.ps1 | iex
+iwr https://raw.githubusercontent.com/avasaralasaipavan/shark/shark-branding/script/distro/install.ps1 | iex
 ```
 
 This installs a single `shark` binary onto your `PATH`. Then just run:
 
 ```bash
 shark
+```
+
+Alternatively, clone and build from source:
+
+```bash
+git clone https://github.com/avasaralasaipavan/shark.git
+cd shark
+bun install
+bun run shark:build
 ```
 
 See [DISTRIBUTION.md](./DISTRIBUTION.md) for pinned versions, local builds, and all installer flags.
