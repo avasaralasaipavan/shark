@@ -6,7 +6,7 @@
 #   .\install.ps1 -Update
 #   .\install.ps1 -Uninstall
 #
-#   iwr https://raw.githubusercontent.com/YOUR_GITHUB/shark/dev/script/distro/install.ps1 | iex
+#   iwr https://raw.githubusercontent.com/avasaralasaipavan/shark/dev/script/distro/install.ps1 | iex
 
 [CmdletBinding()]
 param(
@@ -21,7 +21,7 @@ $ErrorActionPreference = "Stop"
 
 # GitHub repository (owner/repo) that hosts the release assets.
 # Set before first release, e.g. -SHARK_REPO "suja/shark" or $env:SHARK_REPO.
-$script:SHARK_REPO = if ($env:SHARK_REPO) { $env:SHARK_REPO } else { "YOUR_GITHUB/shark" }
+$script:SHARK_REPO = if ($env:SHARK_REPO) { $env:SHARK_REPO } else { "avasaralasaipavan/shark" }
 $App = "shark"
 $InstallDir = if ($env:SHARK_INSTALL_DIR) { $env:SHARK_INSTALL_DIR } else { Join-Path $env:LOCALAPPDATA "$App\bin" }
 

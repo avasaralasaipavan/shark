@@ -5,7 +5,7 @@ APP=shark
 # GitHub repository (owner/repo) that hosts the release assets.
 # Set before first release, e.g. SHARK_REPO="suja/shark". Can also be provided
 # as an environment variable when running the installer.
-SHARK_REPO="${SHARK_REPO:-YOUR_GITHUB/shark}"
+SHARK_REPO="${SHARK_REPO:-avasaralasaipavan/shark}"
 
 # Where the binary is installed. Defaults to ~/.local/bin; override with
 # SHARK_INSTALL_DIR (e.g. /usr/local/bin).

@@ -8,10 +8,10 @@ This repo ships a single self-contained CLI binary named **`shark`** for macOS, 
 
 ```bash
 # macOS / Linux (bash)
-curl -fsSL https://raw.githubusercontent.com/YOUR_GITHUB/shark/dev/script/distro/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/avasaralasaipavan/shark/dev/script/distro/install.sh | bash
 
 # Windows (PowerShell)
-iwr https://raw.githubusercontent.com/YOUR_GITHUB/shark/dev/script/distro/install.ps1 | iex
+iwr https://raw.githubusercontent.com/avasaralasaipavan/shark/dev/script/distro/install.ps1 | iex
 ```
 
 That lands a single static `shark` binary on `PATH` (`~/.local/bin/shark` on macOS/Linux, `%LOCALAPPDATA%\shark\bin\shark.exe` on Windows). Users then just type `shark`.
@@ -52,19 +52,15 @@ CI (`.github/workflows/shark-release.yml`) builds **12 native targets** via Bun 
 Each archive contains the single `shark` binary (`shark.exe` on Windows). Download URLs follow the pattern:
 
 ```
-https://github.com/YOUR_GITHUB/shark/releases/latest/download/shark-linux-x64.tar.gz
-https://github.com/YOUR_GITHUB/shark/releases/download/shark-v1.0.0/shark-darwin-arm64.zip
+https://github.com/avasaralasaipavan/shark/releases/latest/download/shark-linux-x64.tar.gz
+https://github.com/avasaralasaipavan/shark/releases/download/shark-v1.0.0/shark-darwin-arm64.zip
 ```
 
 ---
 
 ## Publishing a release
 
-1. **Set the repo constant.** The installers resolve assets against the repo this repo lives in via a `SHARK_REPO` constant (`owner/repo`):
-   - `script/distro/install.sh` → `SHARK_REPO`
-   - `script/distro/install.ps1` → `$script:SHARK_REPO`
-   - The GitHub workflow uses `github.repository`, so once the code is pushed to your repo you only edit the two installer constants.
-   - Branding values baked into CI builds live in the workflow `env:` block (the root `.env` is gitignored).
+1. **Repo URL.** This fork lives at `avasaralasaipavan/shark`. The installers resolve assets against it via a `SHARK_REPO` constant (`owner/repo`) — already set in `script/distro/install.sh` and `script/distro/install.ps1`. If the repo is ever moved, update those two constants. The GitHub workflow uses `github.repository`, so it needs no constant. Branding values baked into CI builds live in the workflow `env:` block (the root `.env` is gitignored).
 
 2. **Trigger a release** — either:
    - push a tag: `git tag shark-v1.2.3 && git push origin shark-v1.2.3`, or
