@@ -1,7 +1,6 @@
-export const logo = {
-  left: ["                   ", "█▀▀█ █▀▀█ █▀▀█ █▀▀▄", "█__█ █__█ █^^^ █__█", "▀▀▀▀ █▀▀▀ ▀▀▀▀ ▀~~▀"],
-  right: ["             ▄     ", "█▀▀▀ █▀▀█ █▀▀█ █▀▀█", "█___ █__█ █__█ █^^^", "▀▀▀▀ ▀▀▀▀ ▀▀▀▀ ▀▀▀▀"],
-}
+import { brandGlyphs } from "@opencode-ai/brand/env"
+
+export const logo = brandGlyphs()
 
 export const go = {
   left: ["    ", "█▀▀▀", "█_^█", "▀▀▀▀"],

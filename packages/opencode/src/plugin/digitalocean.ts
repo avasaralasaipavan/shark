@@ -1,4 +1,5 @@
 import type { Hooks, PluginInput } from "@opencode-ai/plugin"
+import { Brand } from "@opencode-ai/brand"
 import type { Model } from "@opencode-ai/sdk/v2"
 import { InstallationVersion } from "@opencode-ai/core/installation/version"
 import { OauthCallbackPage } from "@opencode-ai/core/oauth/page"
@@ -283,7 +284,7 @@ export async function DigitalOceanAuthPlugin(input: PluginInput): Promise<Hooks>
             return {
               url,
               instructions:
-                "Sign in to DigitalOcean in your browser. OpenCode will use your DigitalOcean API token directly for inference and load your Inference Routers. Re-run /connect to refresh routers later.",
+                `Sign in to DigitalOcean in your browser. ${Brand.name} will use your DigitalOcean API token directly for inference and load your Inference Routers. Re-run /connect to refresh routers later.`,
               method: "auto" as const,
               async callback() {
                 try {

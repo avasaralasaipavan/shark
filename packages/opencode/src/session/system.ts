@@ -1,5 +1,6 @@
 import { LayerNode } from "@opencode-ai/core/effect/layer-node"
 import { Context, Effect, Layer } from "effect"
+import { Brand } from "@opencode-ai/brand/env"
 
 import { InstanceState } from "@/effect/instance-state"
 
@@ -71,9 +72,19 @@ const layer = Layer.effect(
         const references = yield* Effect.gen(function* () {
           return (yield* (yield* Reference.Service).list()).filter((reference) => reference.description !== undefined)
         }).pipe(Effect.provide(locations.get(Location.Ref.make({ directory: AbsolutePath.make(ctx.directory) }))))
+        const orgDetails = [Brand.orgWebsite, Brand.orgAbout].filter((part): part is string => part !== undefined)
         return [
           [
             `You are powered by the model named ${model.api.id}. The exact model ID is ${model.providerID}/${model.api.id}`,
+            `You are ${Brand.name}, an AI coding agent built and hosted by the ${Brand.org} team. If asked who designed or built you, say you were designed and built by the ${Brand.org} team. ${model.providerID}/${model.api.id} is only your internal model routing ID — it is not a company, developer, or product name.`,
+            ...(orgDetails.length === 0
+              ? []
+              : [
+                  `Here is what you know about ${Brand.org}:`,
+                  "<org>",
+                  ...orgDetails.map((detail) => `  ${detail}`),
+                  "</org>",
+                ]),
             `Here is some useful information about the environment you are running in:`,
             `<env>`,
             `  Working directory: ${ctx.directory}`,

@@ -1,6 +1,7 @@
 import type { Argv } from "yargs"
 import { UI } from "../ui"
 import * as prompts from "@clack/prompts"
+import { Brand } from "@opencode-ai/brand/env"
 import { Installation } from "../../installation"
 import { Global } from "@opencode-ai/core/global"
 import fs from "fs/promises"
@@ -55,7 +56,7 @@ export const UninstallCommand = {
     UI.empty()
     UI.println(UI.logo("  "))
     UI.empty()
-    prompts.intro("Uninstall OpenCode")
+    prompts.intro(`Uninstall ${Brand.name}`)
 
     const method = await Installation.method()
     prompts.log.info(`Installation method: ${method}`)
@@ -229,7 +230,7 @@ async function executeUninstall(method: Installation.Method, targets: RemovalTar
   }
 
   UI.empty()
-  prompts.log.success("Thank you for using OpenCode!")
+  prompts.log.success(`Thank you for using ${Brand.name}!`)
 }
 
 async function getShellConfigFile(): Promise<string | null> {

@@ -1,4 +1,5 @@
 import type { NamedError } from "@opencode-ai/core/util/error"
+import { Brand } from "@opencode-ai/brand"
 import { SessionV1 } from "@opencode-ai/core/v1/session"
 import { Cause, Clock, Duration, Effect, Schedule } from "effect"
 import { MessageV2 } from "./message-v2"
@@ -103,7 +104,7 @@ export function retryable(error: Err, provider: string) {
           reason: "free_tier_limit",
           provider,
           title: "Free limit reached",
-          message: "Subscribe to OpenCode Go for reliable access to the best open-source models for $10/month.",
+          message: `Subscribe to ${Brand.name} Go for reliable access to the best open-source models for $10/month.`,
           label: "subscribe",
           link: GO_UPSELL_URL,
         },
