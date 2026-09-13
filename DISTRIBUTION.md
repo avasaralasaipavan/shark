@@ -8,10 +8,10 @@ This repo ships a single self-contained CLI binary named **`shark`** for macOS, 
 
 ```bash
 # macOS / Linux (bash)
-curl -fsSL https://raw.githubusercontent.com/avasaralasaipavan/shark/dev/script/distro/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/avasaralasaipavan/shark/shark-branding/script/distro/install.sh | bash
 
 # Windows (PowerShell)
-iwr https://raw.githubusercontent.com/avasaralasaipavan/shark/dev/script/distro/install.ps1 | iex
+iwr https://raw.githubusercontent.com/avasaralasaipavan/shark/shark-branding/script/distro/install.ps1 | iex
 ```
 
 That lands a single static `shark` binary on `PATH` (`~/.local/bin/shark` on macOS/Linux, `%LOCALAPPDATA%\shark\bin\shark.exe` on Windows). Users then just type `shark`.

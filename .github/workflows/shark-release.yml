@@ -63,14 +63,16 @@ jobs:
           OPENCODE_CHANNEL: latest
           OPENCODE_RELEASE: "1"
           GH_REPO: ${{ github.repository }}
+          GH_RELEASE_TAG: shark-v${{ steps.version.outputs.value }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: bun run build
 
       # Windows code signing — runs in-place only when credentials are
       # available; no-ops otherwise.  Requires no changes to build.ts.
       - name: Sign Windows binaries (best-effort)
-        if: always()
+        if: success()
         shell: pwsh
+        working-directory: packages/opencode
         env:
           AZURE_TRUSTED_SIGNING_ENDPOINT: ${{ secrets.AZURE_TRUSTED_SIGNING_ENDPOINT }}
           AZURE_TRUSTED_SIGNING_ACCOUNT_NAME: ${{ secrets.AZURE_TRUSTED_SIGNING_ACCOUNT_NAME }}

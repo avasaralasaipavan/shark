@@ -32,8 +32,8 @@ Options:
         --no-modify-path    Don't modify shell config files (.zshrc, .bashrc, etc.)
 
 Examples:
-    curl -fsSL https://raw.githubusercontent.com/$SHARK_REPO/dev/script/distro/install.sh | bash
-    curl -fsSL https://raw.githubusercontent.com/$SHARK_REPO/dev/script/distro/install.sh | bash -s -- --version 1.0.0
+    curl -fsSL https://raw.githubusercontent.com/$SHARK_REPO/shark-branding/script/distro/install.sh | bash
+    curl -fsSL https://raw.githubusercontent.com/$SHARK_REPO/shark-branding/script/distro/install.sh | bash -s -- --version 1.0.0
     ./install.sh --uninstall
 EOF
 }

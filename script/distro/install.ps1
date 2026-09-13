@@ -6,7 +6,7 @@
 #   .\install.ps1 -Update
 #   .\install.ps1 -Uninstall
 #
-#   iwr https://raw.githubusercontent.com/avasaralasaipavan/shark/dev/script/distro/install.ps1 | iex
+#   iwr https://raw.githubusercontent.com/avasaralasaipavan/shark/shark-branding/script/distro/install.ps1 | iex
 
 [CmdletBinding()]
 param(
