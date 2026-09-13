@@ -28,6 +28,37 @@ Other install flags (both scripts):
 
 Uninstalling never touches user data. Shark stores config/data/credentials in the standard opencode directories (`~/.config/opencode`, `~/.local/share/opencode`) — those deliberately survive uninstall/reinstall.
 
+## Uninstalling
+
+Re-run the same installer with the uninstall flag:
+
+```bash
+# macOS / Linux (bash)
+curl -fsSL https://raw.githubusercontent.com/avasaralasaipavan/shark/shark-branding/script/distro/install.sh | bash -s -- --uninstall
+```
+
+```powershell
+# Windows (PowerShell) — download first, uninstall flag is not piped
+iwr https://raw.githubusercontent.com/avasaralasaipavan/shark/shark-branding/script/distro/install.ps1 -OutFile install.ps1
+.\install.ps1 -Uninstall
+```
+
+This removes the `shark`/`shark.exe` binary (`~/.local/bin` on macOS/Linux, `%LOCALAPPDATA%\shark\bin` on Windows) and the PATH entry the installer added. Config/data/credentials are left in place.
+
+**Windows locked-down PowerShell (execution policy blocks scripts):**
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\install.ps1 -Uninstall
+```
+
+Or, without saving a file at all:
+
+```powershell
+powershell -ExecutionPolicy Bypass -Command "iex ((New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/avasaralasaipavan/shark/shark-branding/script/distro/install.ps1') + ' -Uninstall')"
+```
+
+The `Bypass` flag scopes to that single command and does not change your system's execution policy.
+
 ---
 
 ## Release artifacts
